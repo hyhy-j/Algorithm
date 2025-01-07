@@ -1,15 +1,16 @@
-import java.util.Scanner;
+import java.io.*;
+import java.util.StringTokenizer;
 
 public class Main {
-    public static void main(String[] args) {
-      Scanner sc = new Scanner(System.in);
-      String s = sc.nextLine();
-      sc.close();
-      String[] words = s.split(" ");
-      int count=0;
-      for (String word : words){
-          if (!word.isBlank()) count+=1;
-      }
-      System.out.println((count));
+    public static void main(String[] args) throws IOException {
+        BufferedReader bf = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+
+        String s = bf.readLine();
+        bf.close();
+        StringTokenizer st = new StringTokenizer(s);
+        bw.write(st.countTokens()+"\n");
+        bw.flush();
+        bw.close();
     }
 }
